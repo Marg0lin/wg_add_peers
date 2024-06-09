@@ -3,6 +3,16 @@ A quick and dirty PHP script to add peers to Wireguard on pfSense and generate c
 
 This script automates the process of adding a new WireGuard peer on pfSense, generating the necessary keys, updating the server configuration, and creating a client configuration file.
 
+Manual setup of tunnels between peers can be quite tedious and time-consuming, especially if you need to configure more than one connection. To simplify this process, here we are with a PHP script that, when run from the SSH console, uses pfSense mechanisms to modify the Wireguard module configuration. This script automates the process of adding new peers to existing WireGuard tunnels, generating private and public keys for the new peer, updating the server configuration, creating a client configuration file, and restarting the WireGuard service to apply the changes.
+
+## What this script does:
+
+1. **Key Generation:** The script generates a private and public key for the new peer.
+2. **Configuration Update:** Adds the new peer to the selected WireGuard tunnel in the pfSense configuration.
+3. **Configuration File Generation:** Creates a configuration file for the client that can be used to set up the connection on the endpoint device.
+4. **Service Restart:** Automatically restarts the WireGuard service on pfSense to apply the changes.
+5. **DNS Settings Retrieval:** Fetches DNS servers from the `resolv.conf` file and adds them to the client configuration.
+
 ## Instructions for Use
 
 ### Step 1: Save the Script
